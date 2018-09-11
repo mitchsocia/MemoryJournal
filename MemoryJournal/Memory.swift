@@ -21,7 +21,7 @@ class Memory: NSObject {
         self.memoryDate = memoryDate
     }
     
-    var nameAndNumber: String {
-        return "\(memoryName) \(memoryDetail) \(memoryDate)"
-    }
+//    var nameAndNumber: String {
+//        return "\(memoryName) \(memoryDetail) \(memoryDate)"
+//    }
 }

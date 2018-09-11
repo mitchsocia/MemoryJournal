@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D047C3C21485D4D0080C4E9 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D047C3B21485D4D0080C4E9 /* AddMemoryViewController.swift */; };
 		7D21B7C02147064900B22C53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21B7BF2147064900B22C53 /* AppDelegate.swift */; };
 		7D21B7C22147064900B22C53 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21B7C12147064900B22C53 /* MemoryViewController.swift */; };
 		7D21B7C52147064900B22C53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D21B7C32147064900B22C53 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D047C3B21485D4D0080C4E9 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
 		7D21B7BC2147064900B22C53 /* MemoryJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D21B7BF2147064900B22C53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D21B7C12147064900B22C53 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				7D21B7ED21470AB200B22C53 /* MemoryDatabase.swift */,
 				7D21B7EF21470B1400B22C53 /* Memory.swift */,
 				7D21B7F12147554500B22C53 /* DetailViewController.swift */,
+				7D047C3B21485D4D0080C4E9 /* AddMemoryViewController.swift */,
 			);
 			path = MemoryJournal;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				7D21B7F021470B1400B22C53 /* Memory.swift in Sources */,
 				7D21B7C22147064900B22C53 /* MemoryViewController.swift in Sources */,
 				7D21B7F22147554500B22C53 /* DetailViewController.swift in Sources */,
+				7D047C3C21485D4D0080C4E9 /* AddMemoryViewController.swift in Sources */,
 				7D21B7EE21470AB200B22C53 /* MemoryDatabase.swift in Sources */,
 				7D21B7C02147064900B22C53 /* AppDelegate.swift in Sources */,
 			);

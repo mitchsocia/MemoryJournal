@@ -24,6 +24,12 @@ class MemoryJournalViewController: UITableViewController, DetailViewControllerDe
 //    }
     
     func detailViewController(_ _controller: DetailViewController, didFinishEditing item: Memory) {
+        guard let index = memoryList.index(of: item) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.textLabel?.text = item.memoryName
+        navigationController?.popViewController(animated: true)
         
     }
     
@@ -60,6 +66,7 @@ class MemoryJournalViewController: UITableViewController, DetailViewControllerDe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoryJournalItem", for: indexPath)
         
+        cell.textLabel?.font = UIFont(name: "Avenir", size:22);
         cell.textLabel?.text = "\(memoryList[indexPath.row].memoryName)"
         return cell
         

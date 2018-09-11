@@ -8,22 +8,31 @@
 
 import UIKit
 
-class MemoryJournalViewController: UITableViewController {
+class MemoryJournalViewController: UITableViewController, DetailViewControllerDelegate {
     
     var memoryList: [Memory] = []
+    var memoryDatabase = MemoryDatabase()
+    var selectedMemoryIndex = 0
     
-    private func populateMemoryList() {
-        let memoryDatabase = MemoryDatabase()
+//    private func populateMemoryList() {
+//        let memoryDatabase = MemoryDatabase()
+//
+//        for item in memoryDatabase.memories {
+//            let newMemory = Memory.init(memoryName: item, memoryDetail: item, memoryDate: item)
+//            memoryList.append(newMemory)
+//        }
+//    }
+    
+    func detailViewController(_ _controller: DetailViewController, didFinishEditing item: Memory) {
         
-        for item in memoryDatabase.memories {
-            let newMemory = Memory.init(memoryName: item, memoryDetail: item, memoryDate: item)
-            memoryList.append(newMemory) 
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateMemoryList()
+        memoryList = memoryDatabase.populateMemories()
+        
+        
+        //        populateMemoryList()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -36,6 +45,18 @@ class MemoryJournalViewController: UITableViewController {
         return memoryList.count
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedMemoryIndex = indexPath.row
+        return indexPath
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            memoryList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemoryJournalItem", for: indexPath)
         
@@ -43,6 +64,26 @@ class MemoryJournalViewController: UITableViewController {
         return cell
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SeeDetailStoryboardSegue" {
+            guard let detailViewController = segue.destination as? DetailViewController else { return }
+           detailViewController.memoryData = memoryList[selectedMemoryIndex]
+            
+            detailViewController.delegate = self
+        }
+}
+
+    private func useLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    
+    
+}
+
+        
+    
 //
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
@@ -63,5 +104,4 @@ class MemoryJournalViewController: UITableViewController {
 //        tableView.insertRows(at: indexPaths, with: .automatic)
 //
 //    }
-}
 
